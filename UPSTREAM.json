@@ -1,0 +1,8 @@
+{
+  "project": "AKDAgent / SVIXAGENT",
+  "repository": "https://github.com/Akunda123/SVIXAGENT.git",
+  "commit": "ab21f16fb839e88d304a0fc62a0fdfc01867761f",
+  "serverPackageVersion": "1.1.1",
+  "components": ["server", "sv/lua/AKDAgentBridge.lua", "selected skills and license notices"],
+  "note": "Source pin for standalone release builds; the adapter does not change AKDAgent editing algorithms. Optional models and host components are not included."
+}
