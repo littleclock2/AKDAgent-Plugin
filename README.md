@@ -8,7 +8,7 @@
 
 ## 快速安装（Windows，个人范围）
 
-**推荐：独立一键部署**。从 [Releases](https://github.com/littleclock2/AKDAgent-Plugin/releases) 下载 `akdagent-one-click-0.3.0.zip`，完整解压到可写目录，双击根目录 `Deploy.cmd`，选择要接入的应用。
+**推荐：独立一键部署**。从 [Releases](https://github.com/littleclock2/AKDAgent-Plugin/releases) 下载 `akdagent-one-click-1.0.0.zip`，完整解压到可写目录，双击根目录 `Deploy.cmd`，选择要接入的应用。
 
 **也可以将[本仓库链接](https://github.com/littleclock2/AKDAgent-Plugin)直接发给你的 AI Agent，让它按照安装说明帮你完成安装。**
 
@@ -33,7 +33,7 @@
 
 MDX-Net / CREPE 推理、Dolce 识谱，以及 Instrument X、Flat、ACE Studio 等功能需要相应模型、引擎或宿主。没有 SV 侧栏聊天同步功能。详见 [测试记录](plugins/akdagent-chatgpt-plugin/docs/testing.md) 和 [安全与隐私](plugins/akdagent-chatgpt-plugin/SECURITY.md)。
 
-0.3.0 以预览版分发。2026-10-07 对锁定生产依赖执行 npm audit，报告 14 项（3 moderate、7 high、4 critical，含间接/传播项），尚未完成可达性判断和安全升级回归；本次保留 AKDAgent 的锁文件，没有自动修复。仅用于可信本地环境，具体风险见安全说明。
+**1.0.0 为正式版**。已处理 0.3.0 预览版的 14 项生产依赖报告；2026-10-07 执行 `npm audit --omit=dev` 为 0 项，服务构建、原有 541 项离线断言及新增 10 项 FFT/cwise 回归通过。详见 [逐项审计记录](plugins/akdagent-chatgpt-plugin/docs/dependency-audit.md)。零报告不代表完整安全保证，旧客户端运行时不自动获得修复；请选择本版独立服务。
 
 ## 从源码构建发行包
 
@@ -50,7 +50,7 @@ npm --prefix .\vendor\SVIXAGENT\server ci --ignore-scripts
 if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed.' }
 npm --prefix .\vendor\SVIXAGENT\server run build
 if ($LASTEXITCODE -ne 0) { throw 'Service build failed.' }
-powershell -NoProfile -ExecutionPolicy Bypass -File .\plugins\akdagent-chatgpt-plugin\scripts\package.ps1 -SourceRoot .\vendor\SVIXAGENT -OutputDirectory .\dist\release-0.3.0
+powershell -NoProfile -ExecutionPolicy Bypass -File .\plugins\akdagent-chatgpt-plugin\scripts\package.ps1 -SourceRoot .\vendor\SVIXAGENT -OutputDirectory .\dist\release-1.0.0
 if ($LASTEXITCODE -ne 0) { throw 'Packaging failed.' }
 ```
 
@@ -60,6 +60,6 @@ if ($LASTEXITCODE -ne 0) { throw 'Packaging failed.' }
 
 ## 来源与许可
 
-适配器及技能入口采用 [MIT](LICENSE)，贡献者署名为 littleclock2，保留 Akunda123 的原有署名。参考资料保留各自来源与混合许可，包括 SynthVCopilot 的附加条款，不能把资料包整体宣称为纯 MIT。详见 [第三方说明](plugins/akdagent-chatgpt-plugin/THIRD-PARTY-NOTICES.md) 和 [资料包说明](plugins/akdagent-chatgpt-plugin/docs/reference-pack.md)。
+适配器及技能入口采用 [MIT](LICENSE)，贡献者署名为 littleclock2，保留 Akunda123 的原有署名。1.0.0 服务源码取自包含依赖修复的 [littleclock2/SVIXAGENT 分支](https://github.com/littleclock2/SVIXAGENT/tree/feat/codex-chatgpt-plugin)，精确提交及原作者来源见 `UPSTREAM.json`；音乐编辑算法未改写。参考资料保留各自来源与混合许可，包括 SynthVCopilot 的附加条款，不能把资料包整体宣称为纯 MIT。详见 [第三方说明](plugins/akdagent-chatgpt-plugin/THIRD-PARTY-NOTICES.md) 和 [资料包说明](plugins/akdagent-chatgpt-plugin/docs/reference-pack.md)。
 
 集成代码和文档使用了生成式 AI 辅助。社区集成是否被 [AKDAgent](https://github.com/Akunda123/SVIXAGENT) 收录由维护者决定；本仓库不代表平台或原作者背书。

@@ -6,7 +6,7 @@ Maintainer: [littleclock2](https://github.com/littleclock2). Based on [AKDAgent 
 
 ## Quick installation
 
-Recommended: download `akdagent-one-click-0.3.0.zip` from [Releases](https://github.com/littleclock2/AKDAgent-Plugin/releases), extract it completely into a writable directory, run `Deploy.cmd` and select the target applications. No AKDAgent client installation is required.
+Recommended: download `akdagent-one-click-1.0.0.zip` from [Releases](https://github.com/littleclock2/AKDAgent-Plugin/releases), extract it completely into a writable directory, run `Deploy.cmd` and select the target applications. No AKDAgent client installation is required.
 
 **You can also send [this repository's link](https://github.com/littleclock2/AKDAgent-Plugin) to your AI agent and ask it to follow the installation guide for you.**
 
@@ -22,10 +22,10 @@ Manifest validation, Claude Code strict validation, seven MCP-profile launch/rea
 
 No AKDAgent model-chat API key is required. Your selected client/model's limits and billing still apply. See [verification](plugins/akdagent-chatgpt-plugin/docs/testing.md) and [security/privacy](plugins/akdagent-chatgpt-plugin/SECURITY.md).
 
-Version 0.3.0 is a preview release. A 2026-10-07 production-dependency npm audit reported 14 affected entries (3 moderate, 7 high, 4 critical, including transitive/propagated findings). Reachability and security-upgrade regression checks remain outstanding; this release retains AKDAgent's lockfile without automatic fixes. Use only in trusted local environments and read the security notes.
+**1.0.0 is the stable release.** All 14 production-audit entries from the 0.3.0 preview have been addressed; `npm audit --omit=dev` reports zero as of 2026-10-07. The service build, 541 existing offline assertions and ten FFT/cwise regressions passed. See the [per-dependency record](plugins/akdagent-chatgpt-plugin/docs/dependency-audit.md). Zero reports are not a complete security guarantee; an older client runtime does not automatically receive these fixes. Choose this release's standalone service.
 
 ## Source builds and attribution
 
-This repository maintains the adapter, workflows and deployment tools, not a copy of the complete AKDAgent client. `UPSTREAM.json` pins the service/bridge/reference source. The [Chinese README](README.md#从源码构建发行包) contains reproducible PowerShell build commands using a separate checkout and `package.ps1 -SourceRoot`; Git and Node 22.13+ with npm are required. Local `vendor/` and `dist/` are ignored. See [contributing](plugins/akdagent-chatgpt-plugin/CONTRIBUTING.md).
+This repository maintains the adapter, workflows and deployment tools, not a copy of the complete AKDAgent client. `UPSTREAM.json` pins the service/bridge/reference source in littleclock2's dependency-hardened SVIXAGENT branch and records the original author source. Editing algorithms are unchanged. The [Chinese README](README.md#从源码构建发行包) contains reproducible PowerShell build commands using a separate checkout and `package.ps1 -SourceRoot`; Git and Node 22.13+ with npm are required. Local `vendor/` and `dist/` are ignored. See [contributing](plugins/akdagent-chatgpt-plugin/CONTRIBUTING.md).
 
 Integration files use [MIT](LICENSE), attributed to littleclock2 while retaining Akunda123's original attribution. References retain mixed third-party terms, including SynthVCopilot's additional terms; the entire reference pack is not represented as MIT. See [notices](plugins/akdagent-chatgpt-plugin/THIRD-PARTY-NOTICES.md). Integration code/documentation used generative-AI assistance. This community integration does not imply platform or original-author endorsement.
